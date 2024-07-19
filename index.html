@@ -51,9 +51,6 @@
         background: rgba(0, 0, 0, 0.5);
         border-radius: 10px;
       }
-
-    
-
     
     </style>
   </head>
@@ -83,8 +80,7 @@
         canvas.style.height = canvasHeight + "px";
       }
 
-      window.addEventListener('resize', resizeCanvas);
-      resizeCanvas();
+      
 
       var buildUrl = "Build";
       var loaderUrl = buildUrl + "/FruitMerge.loader.js";
@@ -112,6 +108,9 @@
         });
       };
       document.body.appendChild(script);
+
+      window.addEventListener('resize', resizeCanvas);
+      resizeCanvas();
     </script>
   </body>
 </html>

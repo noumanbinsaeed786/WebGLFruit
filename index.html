@@ -42,15 +42,8 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        width: 100%;
-        height: 100%;
       }
-
-      
-      #unity-logo, #unity-progress-bar-empty, #unity-progress-bar-full {
-        display: none;
-      }
-        
+    
     </style>
   </head>
   <body>
@@ -79,8 +72,7 @@
         canvas.style.height = canvasHeight + "px";
       }
 
-      window.addEventListener('resize', resizeCanvas);
-      resizeCanvas();
+      
 
       var buildUrl = "Build";
       var loaderUrl = buildUrl + "/FruitMerge.loader.js";
@@ -92,31 +84,25 @@
         companyName: "Games",
         productName: "Watermelon Merge",
         productVersion: "1.0.0",
-        //showBanner: unityShowBanner,
       };
 
-      // By default, Unity keeps WebGL canvas render target size matched with
-      // the DOM size of the canvas element (scaled by window.devicePixelRatio)
-      // Set this to false if you want to decouple this synchronization from
-      // happening inside the engine, and you would instead like to size up
-      // the canvas DOM size and WebGL render target sizes yourself.
-      // config.matchWebGLToCanvasSize = false;
-    // }
-    loadingBar.style.display = "block";
+      loadingBar.style.display = "block";
 
-    var script = document.createElement("script");
+      var script = document.createElement("script");
       script.src = loaderUrl;
       script.onload = () => {
         createUnityInstance(canvas, config, (progress) => {
           progressBarFull.style.width = 100 * progress + "%";
         }).then((unityInstance) => {
           loadingBar.style.display = "none";
-        
         }).catch((message) => {
           alert(message);
         });
       };
       document.body.appendChild(script);
+
+      window.addEventListener('resize', resizeCanvas);
+      resizeCanvas();
     </script>
   </body>
 </html>
